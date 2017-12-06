@@ -152,7 +152,7 @@ class CRM_Yeehongreports_Form_Report_UserLoggedInCMS extends CRM_Report_Form {
             'default' => TRUE,
             'dbAlias' => "DATE_FORMAT(FROM_UNIXTIME(s_civireport.login), '%d-%m-%Y %H:%i:%s')",
           ),
-          'login' => array(
+          'access' => array(
             'title' => ts('Last Accessed'),
             'default' => TRUE,
             'dbAlias' => "DATE_FORMAT(FROM_UNIXTIME(s_civireport.access), '%d-%m-%Y %H:%i:%s')",
