@@ -11,11 +11,11 @@ return array (
     'params' => 
     array (
       'version' => 3,
-      'label' => 'UserLoggedInCMS',
+      'label' => ts('User Logged In CMS'),
       'description' => 'UserLoggedInCMS (biz.jmaconsulting.yeehongreports)',
       'class_name' => 'CRM_Yeehongreports_Form_Report_UserLoggedInCMS',
       'report_url' => 'userlogin',
-      'component' => 'CiviMail',
+      'component' => 'CiviContact',
     ),
   ),
 );

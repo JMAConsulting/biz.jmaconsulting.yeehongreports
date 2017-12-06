@@ -11,7 +11,7 @@ return array (
     'params' => 
     array (
       'version' => 3,
-      'label' => 'Weekly Mailing Report',
+      'label' => ts('Weekly Mailing Report'),
       'description' => 'Weekly Mailing Report (biz.jmaconsulting.yeehongreports)',
       'class_name' => 'CRM_Yeehongreports_Form_Report_WeeklyReport',
       'report_url' => 'weeklyreport',

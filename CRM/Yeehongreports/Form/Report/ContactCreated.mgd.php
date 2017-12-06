@@ -11,11 +11,11 @@ return array (
     'params' => 
     array (
       'version' => 3,
-      'label' => 'ContactCreated',
+      'label' => ts('Contact Created'),
       'description' => 'ContactCreated (biz.jmaconsulting.yeehongreports)',
       'class_name' => 'CRM_Yeehongreports_Form_Report_ContactCreated',
       'report_url' => 'created',
-      'component' => 'CiviMail',
+      'component' => 'CiviContact',
     ),
   ),
 );

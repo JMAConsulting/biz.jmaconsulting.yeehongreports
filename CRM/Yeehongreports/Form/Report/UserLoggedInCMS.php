@@ -260,7 +260,7 @@ class CRM_Yeehongreports_Form_Report_UserLoggedInCMS extends CRM_Report_Form {
     }
 
     $this->_from .= "
-            LEFT JOIN civicrm_uf_match {$this->_aliases['civicrm_uf_match']}
+            INNER JOIN civicrm_uf_match {$this->_aliases['civicrm_uf_match']}
                    ON {$this->_aliases['civicrm_contact']}.id = {$this->_aliases['civicrm_uf_match']}.contact_id ";
 
     $this->_from .= "
