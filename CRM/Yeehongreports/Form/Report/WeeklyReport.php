@@ -146,14 +146,6 @@ class CRM_Yeehongreports_Form_Report_WeeklyReport extends CRM_Report_Form {
           'type' => CRM_Utils_Type::T_DATE,
         ),
       ),
-      'order_bys' => array(
-        'end_date' => array(
-          'title' => ts('End Date'),
-          'default_weight' => '1',
-          'default_order' => 'DESC',
-          'dbAlias' => 'MAX(mailing_job_civireport.end_date)',
-        ),
-      ),
       'grouping' => 'mailing-fields',
     );
 

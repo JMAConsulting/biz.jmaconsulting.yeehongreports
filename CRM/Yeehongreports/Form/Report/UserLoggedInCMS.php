@@ -152,14 +152,25 @@ class CRM_Yeehongreports_Form_Report_UserLoggedInCMS extends CRM_Report_Form {
             'default' => TRUE,
             'dbAlias' => "DATE_FORMAT(FROM_UNIXTIME(s_civireport.login), '%d-%m-%Y %H:%i:%s')",
           ),
+          'login' => array(
+            'title' => ts('Last Accessed'),
+            'default' => TRUE,
+            'dbAlias' => "DATE_FORMAT(FROM_UNIXTIME(s_civireport.access), '%d-%m-%Y %H:%i:%s')",
+          ),
         ),
         'filters' => array(
           'login' => array(
             'title' => ts('Last Logged In'),
-            'default' => 'ending.week',
             'operatorType' => CRM_Report_Form::OP_DATE,
             'type' => CRM_Utils_Type::T_DATE,
             'dbAlias' => "DATE_FORMAT(FROM_UNIXTIME(s_civireport.login), '%Y%m%d')",
+          ),
+          'access' => array(
+            'title' => ts('Last Accessed'),
+            'default' => 'ending.week',
+            'operatorType' => CRM_Report_Form::OP_DATE,
+            'type' => CRM_Utils_Type::T_DATE,
+            'dbAlias' => "DATE_FORMAT(FROM_UNIXTIME(s_civireport.access), '%Y%m%d')",
           ),
         ),
         'grouping' => 'contact-fields',
