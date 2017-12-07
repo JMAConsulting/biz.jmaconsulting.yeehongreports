@@ -4,18 +4,18 @@
 // database as appropriate. For more details, see "hook_civicrm_managed" at:
 // http://wiki.civicrm.org/confluence/display/CRMDOC42/Hook+Reference
 return array (
-  0 => 
+  0 =>
   array (
     'name' => 'CRM_Yeehongreports_Form_Report_ContactCreated',
     'entity' => 'ReportTemplate',
-    'params' => 
+    'params' =>
     array (
       'version' => 3,
       'label' => ts('Contact Created'),
       'description' => 'ContactCreated (biz.jmaconsulting.yeehongreports)',
       'class_name' => 'CRM_Yeehongreports_Form_Report_ContactCreated',
       'report_url' => 'created',
-      'component' => 'CiviContact',
+      'component' => '',
     ),
   ),
 );
