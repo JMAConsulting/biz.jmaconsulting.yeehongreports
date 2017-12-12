@@ -144,6 +144,11 @@ class CRM_Yeehongreports_Form_Report_ContactCreated extends CRM_Report_Form {
       'type' => CRM_Utils_Type::T_DATE,
     );
 
+    $this->_columns['civicrm_group']['fields']['title'] = array(
+      'title' => ts('Group(s)'),
+      'dbAlias' => "GROUP_CONCAT(DISTINCT(cgroup_civireport.title))",
+    );
+
     $this->_groupFilter = TRUE;
     $this->_tagFilter = TRUE;
     parent::__construct();
@@ -181,7 +186,7 @@ class CRM_Yeehongreports_Form_Report_ContactCreated extends CRM_Report_Form {
         }
       }
     }
-
+    $this->_selectClauses = $select;
     $this->_select = "SELECT " . implode(', ', $select) . " ";
   }
 
@@ -224,6 +229,15 @@ class CRM_Yeehongreports_Form_Report_ContactCreated extends CRM_Report_Form {
                    ON {$this->_aliases['civicrm_address']}.country_id = {$this->_aliases['civicrm_country']}.id AND
                       {$this->_aliases['civicrm_address']}.is_primary = 1 ";
     }
+
+    if ($this->isTableSelected('civicrm_group')) {
+      $this->_from .= "
+            LEFT JOIN civicrm_group_contact gc
+                   ON gc.contact_id = {$this->_aliases['civicrm_contact']}.id AND
+                      gc.status = 'Added'
+            LEFT JOIN civicrm_group {$this->_aliases['civicrm_group']}
+                   ON {$this->_aliases['civicrm_group']}.id = gc.group_id";
+    }
   }
 
   public function postProcess() {
@@ -241,6 +255,15 @@ class CRM_Yeehongreports_Form_Report_ContactCreated extends CRM_Report_Form {
     $this->formatDisplay($rows);
     $this->doTemplateAssignment($rows);
     $this->endPostProcess($rows);
+  }
+
+  /**
+   * Build group by clause.
+   */
+  public function groupBy() {
+    $groupBy = "{$this->_aliases['civicrm_contact']}.id";
+    $this->_groupBy = "GROUP BY {$this->_aliases['civicrm_contact']}.id";
+    $this->_select = CRM_Contact_BAO_Query::appendAnyValueToSelect($this->_selectClauses, $groupBy);
   }
 
   /**
