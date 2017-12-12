@@ -137,6 +137,10 @@ class CRM_Yeehongreports_Form_Report_WeeklyReport extends CRM_Report_Form {
     $this->_columns['civicrm_mailing_job'] = array(
       'dao' => 'CRM_Mailing_DAO_MailingJob',
       'fields' => array(
+        'end_date' => array(
+          'title' => ts('Sent Date'),
+          'default' => TRUE,
+        ),
       ),
       'filters' => array(
         'end_date' => array(
